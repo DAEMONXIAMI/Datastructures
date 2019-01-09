@@ -25,7 +25,7 @@ public class Queue {
 
     //删除
     public int remove() throws Exception {
-        if(isEmpty()) throw new Exception("队列为空，不能移除")
+        if(isEmpty()) throw new Exception("队列为空，不能移除");
         int elem = queue[front];
         if (front == maxSize) front = 0;
         else front++;
