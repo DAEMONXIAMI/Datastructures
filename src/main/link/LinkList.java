@@ -21,8 +21,10 @@ public class LinkList {
         Node stat = first;
         if(stat ==null) return false;
         if(stat.info == info){
-            stat
+            stat.next = stat.next.next;
         }
+        else stat = stat.next;
+        return true;
     }
 
     //根据查找一个节点，返回一个布尔值
