@@ -45,7 +45,7 @@ public class BinaryTree {
                     cur =cur.leftChild;
                 }
             }
-            else (node.value >= cur.value){
+            else {
                 if(cur.rightChild == null){
                     cur = cur.rightChild;
                     return;

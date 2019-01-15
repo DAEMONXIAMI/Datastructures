@@ -1,7 +1,9 @@
 package test;
 
 import main.Array.OrderArray;
-import org.junit.jupiter.api.Test;
+import main.sort.BubbleSort;
+import org.junit.Test;
+
 
 public class TestClass {
    public static void main(String[] args){
@@ -16,9 +18,11 @@ public class TestClass {
     @Test
     public void test1(){
 
-        int[] a = {0,1};
-        OrderArray orderArray = new OrderArray(a);
-        System.out.println(orderArray.find(1));
+        int array[] = {6,5,1,4,2,3,0};
+        BubbleSort bs =new BubbleSort();
+        array = bs.bubbleSort(array);
+        for(int a :array)
+        System.out.println(a);
 
    }
 }
