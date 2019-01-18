@@ -2,6 +2,8 @@ package test;
 
 import main.Array.OrderArray;
 import main.sort.BubbleSort;
+import main.sort.SelectionSort;
+import main.sort.insertionSort;
 import org.junit.Test;
 
 
@@ -18,11 +20,11 @@ public class TestClass {
     @Test
     public void test1(){
 
-        int array[] = {6,5,1,4,2,3,0};
-        BubbleSort bs =new BubbleSort();
-        array = bs.bubbleSort(array);
+        int array[] = {6,5,1,2};
+        insertionSort ss =new insertionSort();
+        array = ss.BinaryInsertionSort(array);
         for(int a :array)
-        System.out.println(a);
+        System.out.print(a);
 
    }
 }
