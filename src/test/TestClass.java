@@ -1,10 +1,7 @@
 package test;
 
 import main.Array.OrderArray;
-import main.sort.BubbleSort;
-import main.sort.Merge;
-import main.sort.SelectionSort;
-import main.sort.insertionSort;
+import main.sort.*;
 import org.junit.Test;
 
 
@@ -21,10 +18,10 @@ public class TestClass {
     @Test
     public void test1(){
 
-        int array[] = {6,5,1,2,5,8,2,4,55,6,0};
-        Merge.sort(array);
+        int array[] = {6,5,1,26,6,6,5,8,2,4,55,6,0};
+        Quick.sort(array);
         for(int a :array)
-        System.out.print(a);
+        System.out.print(a+" ");
 
    }
 }
