@@ -25,7 +25,7 @@ public class Merge {
         arraymirro = new int[array.length];
         for(int i = lo; i<=hi; i++){
             arraymirro[i] = array[i];
-        }
+         }
 
         for(int x=lo, i =lo, j = mid+1; x<=hi; x++){
             if(i>mid) array[x]= arraymirro[j++];
