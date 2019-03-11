@@ -34,16 +34,16 @@ public class Merge {
                 else array[x] = arraymirro[j++];
             }
         }*/
-    public void sort(int[] array) {
+/*    public void sort(int[] array) {
         int l = 0;
         int r = array.length - 1;
         Sort(array, l, r);
     }
 
     public void Sort(int[] array, int l, int r) {
-        if (l >= r) {
-            return;
-        }
+            if (l >= r) {
+                return;
+            }
 
         int mid = (l + r) / 2;
         Sort(array, l, mid);
@@ -80,6 +80,35 @@ public class Merge {
 
         for (i = l; i <= r; i++) {
             array[i - l] = aux[i];
+        }
+    }*/
+    public void sort(int[] array){
+        int lo = 0;
+        int hi = array.length - 1;
+        sort(array, lo, hi);
+    }
+
+    private void sort(int[] array, int lo, int hi) {
+        if(lo >= hi) return;
+        int mid = (lo + hi) / 2;
+        sort(array, lo, mid);
+        sort(array, mid + 1, hi);
+        if(array[mid] > array[mid + 1])
+        mergeSort(array, lo, mid, hi);
+    }
+
+    private void mergeSort(int[] array, int lo, int mid, int hi) {
+        int[] aux = new int[array.length];
+        for (int i = lo; i <= hi; i++) {
+            aux[lo] = array[i];
+        }
+        int loo = lo;
+        int hii = mid + 1;
+        for (int i = lo; i <= hi; i++) {
+            if(lo > mid) array[i] = aux[hii++];
+            if(hi > hi) array[i] = aux[loo++];
+            if(aux[loo] < aux[hii]) array[i] = aux[loo ++];
+            if(aux[loo] >= aux[hii]) array[i] = aux[hii ++];
         }
     }
 }

@@ -1,50 +1,53 @@
 package main.sort;
 
 public class Quick {
+    public static void sort(int[] array) {
+    }
+
     /*    public static void sort(int[] array) {
-            sort(array, 0, array.length - 1);
-        }
-
-        public static void sort(int[] array, int lo, int hi) {
-            if (lo >= hi) {
-                return;
+                sort(array, 0, array.length - 1);
             }
-            int j = partition(array, lo, hi);
-
-            sort(array, lo, j - 1);
-            sort(array, j + 1, hi);
-        }
-
-        public static int partition(int[] array, int lo, int hi) {
-            int i = lo;
-            int j = hi + 1;
-            int comp = array[lo];
-
-            while (true) {
-                while (comp > array[++i]) {
-                    if (i == hi) break;
+    
+            public static void sort(int[] array, int lo, int hi) {
+                if (lo >= hi) {
+                    return;
                 }
-                while (comp < array[--j]) {
-                    if (j == lo) break;
+                int j = partition(array, lo, hi);
+    
+                sort(array, lo, j - 1);
+                sort(array, j + 1, hi);
+            }
+    
+            public static int partition(int[] array, int lo, int hi) {
+                int i = lo;
+                int j = hi + 1;
+                int comp = array[lo];
+    
+                while (true) {
+                    while (comp > array[++i]) {
+                        if (i == hi) break;
+                    }
+                    while (comp < array[--j]) {
+                        if (j == lo) break;
+                    }
+    
+                    if (i >= j)
+                        break;
+    
+                    int temp;
+                    temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
                 }
-
-                if (i >= j)
-                    break;
-
+    
                 int temp;
-                temp = array[i];
-                array[i] = array[j];
+                temp = array[lo];
+                array[lo] = array[j];
                 array[j] = temp;
-            }
-
-            int temp;
-            temp = array[lo];
-            array[lo] = array[j];
-            array[j] = temp;
-
-            return j;
-        }*/
-    public void quickSort(int[] array) {
+    
+                return j;
+            }*/
+/*    public void quickSort(int[] array) {
         int l = 0;
         int r = array.length - 1;
         quickSort(array, l, r);
@@ -77,5 +80,39 @@ public class Quick {
         temp = array[j];
         array[j] = v;
         return j;
+    }*/
+    public void quick(int[] array) {
+        int lo = 0;
+        int hi = array.length - 1;
+        quick(array, lo, hi);
     }
+
+    private void quick(int[] array, int lo, int hi) {
+        if(lo > hi) return;
+
+        int j = partition(array, lo, hi);
+        quick(array, lo, j - 1);
+        quick(array, j + 1, hi);
+    }
+
+    private int partition(int[] array, int lo, int hi) {
+        int value = array[lo];
+        int j = lo;
+        for (int i = lo + 1; i <= hi; i++) {
+            if (array[i] > value) {
+                swap(array[i], array[j + 1]);
+                j++;
+            }
+        }
+        swap(array[lo], array[j]);
+        return j;
+    }
+
+    private void swap(int i, int i1) {
+        int temp;
+        temp = i;
+        i = i1;
+        i1 = temp;
+    }
+
 }
