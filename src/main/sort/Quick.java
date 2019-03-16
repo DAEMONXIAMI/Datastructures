@@ -1,28 +1,26 @@
 package main.sort;
 
 public class Quick {
-    public static void sort(int[] array) {
-    }
 
     /*    public static void sort(int[] array) {
                 sort(array, 0, array.length - 1);
             }
-    
+
             public static void sort(int[] array, int lo, int hi) {
                 if (lo >= hi) {
                     return;
                 }
                 int j = partition(array, lo, hi);
-    
+
                 sort(array, lo, j - 1);
                 sort(array, j + 1, hi);
             }
-    
+
             public static int partition(int[] array, int lo, int hi) {
                 int i = lo;
                 int j = hi + 1;
                 int comp = array[lo];
-    
+
                 while (true) {
                     while (comp > array[++i]) {
                         if (i == hi) break;
@@ -30,21 +28,21 @@ public class Quick {
                     while (comp < array[--j]) {
                         if (j == lo) break;
                     }
-    
+
                     if (i >= j)
                         break;
-    
+
                     int temp;
                     temp = array[i];
                     array[i] = array[j];
                     array[j] = temp;
                 }
-    
+
                 int temp;
                 temp = array[lo];
                 array[lo] = array[j];
                 array[j] = temp;
-    
+
                 return j;
             }*/
 /*    public void quickSort(int[] array) {
@@ -81,7 +79,7 @@ public class Quick {
         array[j] = v;
         return j;
     }*/
-    public void quick(int[] array) {
+/*    public void quick(int[] array) {
         int lo = 0;
         int hi = array.length - 1;
         quick(array, lo, hi);
@@ -113,6 +111,80 @@ public class Quick {
         temp = i;
         i = i1;
         i1 = temp;
+    }*/
+    public void sort(int[] array){
+        int lo = 0;
+        int hi = array.length - 1;
+        sort(array, lo, hi);
     }
 
+    private void sort(int[] array, int lo, int hi) {
+        if (lo >= hi) {
+            return;
+        }
+        int p = partition(array, lo, hi);
+        sort(array, lo, p - 1);
+        sort(array, p + 1, hi);
+    }
+
+    private int partition(int[] array, int lo, int hi) {
+        int v = array[lo];
+        int j = lo;
+
+        for (int i = j + 1; i <= hi; i++) {
+            if (array[i] < array[j]) {
+                swap(array, i, j+1);
+                j ++;
+            }
+        }
+        swap(array, lo, j);
+
+        return j;
+    }
+
+    private void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    public void sort2(int[] array) {
+        int lo = 0;
+        int hi = array.length - 1;
+        sort2(array, lo, hi);
+    }
+
+    private void sort2(int[] array, int lo, int hi) {
+        if (lo >= hi) {
+            return;
+        }
+
+        int p = partition2(array, lo, hi);
+        sort2(array, lo, p - 1);
+        sort2(array, p + 1, hi);
+    }
+
+    private int partition2(int[] array, int lo, int hi) {
+        int v = array[lo];
+        int i = lo + 1;
+        int j = hi;
+
+        while (true) {
+            while (i <= hi && array[i] < v) {
+                i ++;
+            }
+            while (array[j] > v && j >= lo + 1) {
+                j --;
+            }
+
+            if (i > j) {
+                break;
+            }
+            swap(array, i, j);
+            i++;
+            j--;
+        }
+        swap(array, lo, j);
+        return j;
+    }
 }

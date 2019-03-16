@@ -19,7 +19,8 @@ public class TestClass {
     public void test1(){
 
         int array[] = {6,5,1,26,6,6,5,8,2,4,55,6,0};
-        Quick.sort(array);
+        Quick quick = new Quick();
+        quick.sort2(array);
         for(int a :array)
         System.out.print(a+" ");
 

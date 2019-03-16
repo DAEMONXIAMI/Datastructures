@@ -1,11 +1,13 @@
 package main.sort;
 
+import java.util.Arrays;
+
 public class SelectionSort {
     public int[] selectionSort(int[] array){
         int length = array.length;
         int min;//定义未排序数组中的最小值
-        int temp;
-        //一共循环length-1次，每次排出一个最小值
+        int temp = 0;
+/*        //一共循环length-1次，每次排出一个最小值
         for(int i = 0; i<length-1; i++){
             //初始化最小值为未排序的第一个数
             min = array[i];
@@ -21,6 +23,18 @@ public class SelectionSort {
             array[temp] = array[i];
             array[i] = min;
 
+        }*/
+        for (int i = 0; i < length; i++) {
+            min = array[i];
+            temp = i;
+            for (int j = i + 1; j < length; j++) {
+                if (min > array[j]) {
+                    min = array[j];
+                    temp = j;
+                }
+            }
+            array[temp] = array[i];
+            array[i] = min;
         }
         return array;
     }
