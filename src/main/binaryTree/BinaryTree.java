@@ -1,5 +1,9 @@
 package main.binaryTree;
 
+import main.queue.Queue;
+
+import java.util.ArrayDeque;
+
 //二叉搜索树的封装类
 public class BinaryTree {
     private Node root;//根节点
@@ -156,6 +160,22 @@ public class BinaryTree {
             preorder(currentRoot.leftChild);
             preorder(currentRoot.rightChild);
             System.out.println(currentRoot.value+"\t");
+        }
+    }
+
+    public void levelOrder(Node root) {
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.push(root);
+        while (!arrayDeque.isEmpty()) {
+            Node node = (Node) arrayDeque.getFirst();
+            System.out.println(node.value);
+            arrayDeque.pop();
+            if (node.leftChild != null) {
+                arrayDeque.push(node.leftChild);
+            }
+            if (node.rightChild != null) {
+                arrayDeque.push(node.rightChild);
+            }
         }
     }
 }
